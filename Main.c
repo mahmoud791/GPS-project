@@ -139,6 +139,18 @@ int main (void){
     float32 decimal_longitude_new = 0, decimal_longitude_old = 0,decimal_latitude_new = 0, decimal_latitude_old = 0;
     float32 distance = 0, total_distance = 0;
 
+    /* THIS IS  SOME TEST CASES 
+    
+    uint8 timeH_new = 0, timeM_new=0, timeS_new = 0;
+    uint8 latitudeD_new = 0, longitudeD_new = 0;
+    uint16 latitudeM_new= 0, longitudeM_new = 0;
+    float32 latitudeS_new = 0, longitudeS_new = 0;
+    uint8 distance_buffer=0;
+    uint8 i=0;
+    
+    
+     */
+
     sint8 distance_str[10];
 
 
