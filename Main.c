@@ -1,6 +1,24 @@
 #include "hashs.h"
 
 
+#define PI 3.141592653589793238462643383279502884197169399375105820974944592307816406286
+
+
+
+float32 Decimal_LONG_LAT_CAL (uint8 degree,uint16 min,float32 second){
+
+    return (float)degree + (float)min/60 + (float)second/3600;
+
+}
+
+
+float32 Distance_calc (float32 Long_new,float32 Lat_new,float32 Long_old,float32 Lat_old ){
+    return       2 * 6371000 * asin(sqrt((sin((Lat_new*(PI/180)-Lat_old*(PI/180))/2))\
+                                             * (sin((Lat_new * (PI/180)-Lat_old * (PI/180))/2)) + cos(Lat_new*(PI/180))\
+                                             * cos(Lat_old * (PI/180)) * sin(((Long_new * (PI/180)-Long_old*(PI/180))/2))\
+                                             * sin(((Long_new * (PI/180)-Long_old*(PI/180))/2))));
+
+}
 
 
 sint8 coordinatesTime (uint8 *timeH,uint8 *timeM,uint8 *timeS,\
@@ -102,8 +120,6 @@ sint8 coordinatesTime (uint8 *timeH,uint8 *timeM,uint8 *timeS,\
 
 
 
-
-
 int main (void){
 
 
@@ -117,6 +133,13 @@ int main (void){
     uint8 latitudeD_new = 0, longitudeD_new = 0;
     uint16 latitudeM_new= 0, longitudeM_new = 0;
     float32 latitudeS_new = 0, longitudeS_new = 0;
+    uint8 distance_buffer=0;
+    uint8 i=0;
+
+    float32 decimal_longitude_new = 0, decimal_longitude_old = 0,decimal_latitude_new = 0, decimal_latitude_old = 0;
+    float32 distance = 0, total_distance = 0;
+
+    sint8 distance_str[10];
 
 
     sint8 GPGGA_checker [5];
@@ -144,10 +167,16 @@ int main (void){
         }
     }
 
+    decimal_longitude_new = Decimal_LONG_LAT_CAL(longitudeD_new, longitudeM_new, longitudeS_new);
+    decimal_latitude_new = Decimal_LONG_LAT_CAL(latitudeD_new, latitudeM_new, latitudeS_new);
 
     while(1)
     {
 
+
+
+        decimal_longitude_old = decimal_longitude_new;
+        decimal_latitude_old = decimal_latitude_new;
 
         while (1)
         {
@@ -169,5 +198,38 @@ int main (void){
                 }
             }
         }
+
+        decimal_longitude_new = Decimal_LONG_LAT_CAL(longitudeD_new, longitudeM_new, longitudeS_new);
+        decimal_latitude_new = Decimal_LONG_LAT_CAL(latitudeD_new, latitudeM_new, latitudeS_new);
+
+
+
+        distance =    Distance_calc(decimal_longitude_new, decimal_latitude_new, decimal_longitude_old, decimal_latitude_old);
+
+        ltoa((long)distance, distance_str, 10);
+
+
+
+        distance_buffer += distance;
+        total_distance += distance;
+
+
+        if(distance_buffer>=2)
+        {
+            distance_buffer = 0;
+            i++;
+
+        }
+
+        ltoa(total_distance, distance_str, 10);
+
+
+        UART0_SendStr(distance_str);
+
     }
+
+
+
+
 }
+
