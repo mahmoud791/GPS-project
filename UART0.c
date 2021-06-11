@@ -1,6 +1,7 @@
 #include <tm4c123gh6pm_registers.h>
 #include <typedef.h>
 #include <UART0.h>
+#include "hashs.h"
 
 
 
@@ -78,5 +79,17 @@ void UART0_ReceiveStr_SpecialChar (uint8 spec, sint8 *str)
     str[i] = '\0';
 
 
+
+}
+
+
+
+void UART0_Send_float(float32 num){
+
+    sint8 str[20];
+
+    snprintf(str, num, "%f");
+
+    UART0_SendStr(str);
 
 }

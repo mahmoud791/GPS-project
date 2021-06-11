@@ -13,5 +13,6 @@ void UART0_SendStr (sint8*);
 uint8 UART0_ReceiveData (void);
 void UART0_ReceiveStr_len (uint8, sint8*);
 void UART0_ReceiveStr_SpecialChar (uint8, sint8*);
+void UART0_Send_float(float32 num);
 
 #endif
