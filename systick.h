@@ -4,8 +4,11 @@
 
 void systick_init (void);
 
-void systick_wait1ms(uint32 delay);
+static void systick_wait(uint32 delay);
 
+void systick_wait_ms(uint32 delay);
+
+void systick_wait_sec(uint32 delay);
 
 
 #endif
