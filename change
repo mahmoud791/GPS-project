@@ -1,0 +1,7 @@
+        if(timeS_new >timeS_old){
+            timeS += timeS_new - timeS_old;
+        }
+        else
+        {
+            timeS += timeS_new - timeS_old + 60;
+        }

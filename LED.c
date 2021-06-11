@@ -3,8 +3,6 @@
 
 void Led_port_init (void)
 {
-    SYSCTL_REGCGC2_REG |= 0x00000020;
-    while (!(SYSCTL_PRGPIO_REG & 0X20)); // MAKE SURE PORTA CLOCK IS STABLE
 
 
     GPIO_PORTF_AMSEL_REG &= 0xFFFFFFF1;
