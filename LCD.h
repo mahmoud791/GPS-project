@@ -1,10 +1,10 @@
 #ifndef LCD_H_
 #define LCD_H_
 
+#include <Macros.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "typedef.h"
-#include "common_macros.h"
 #include "tm4c123gh6pm_registers.h"
 
 
