@@ -2,9 +2,9 @@
 
 ports.obj: ../ports.c
 ports.obj: ../ports.h
-ports.obj: C:/Users/Mahmoud\ El-Tabakh/Desktop/2021\ Term\ 2/Embedded\ System/Gps\ Project/tm4c123gh6pm_registers.h
+ports.obj: ../tm4c123gh6pm_registers.h
 ports.obj: ../hashs.h
-ports.obj: C:/Users/Mahmoud\ El-Tabakh/Desktop/2021\ Term\ 2/Embedded\ System/Gps\ Project/GPS/typedef.h
+ports.obj: C:/Users/Mahmoud\ El-Tabakh/Desktop/2021\ Term\ 2/Embedded\ System/Gps\ Project/New/GPS/typedef.h
 ports.obj: ../UART0.h
 ports.obj: ../UART2.h
 ports.obj: C:/ti/ccs1031/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/string.h
@@ -20,21 +20,23 @@ ports.obj: C:/ti/ccs1031/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/sys/_t
 ports.obj: C:/ti/ccs1031/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/machine/_types.h
 ports.obj: C:/ti/ccs1031/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/machine/_limits.h
 ports.obj: ../LCD.h
-ports.obj: C:/Users/Mahmoud\ El-Tabakh/Desktop/2021\ Term\ 2/Embedded\ System/Gps\ Project/GPS/Macros.h
+ports.obj: C:/Users/Mahmoud\ El-Tabakh/Desktop/2021\ Term\ 2/Embedded\ System/Gps\ Project/New/GPS/Macros.h
 ports.obj: C:/ti/ccs1031/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdio.h
 ports.obj: C:/ti/ccs1031/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdarg.h
 ports.obj: C:/ti/ccs1031/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdlib.h
 ports.obj: ../LED.h
+ports.obj: ../interrupt.h
+ports.obj: ../hashs.h
 
 ../ports.c:
 
 ../ports.h:
 
-C:/Users/Mahmoud\ El-Tabakh/Desktop/2021\ Term\ 2/Embedded\ System/Gps\ Project/tm4c123gh6pm_registers.h:
+../tm4c123gh6pm_registers.h:
 
 ../hashs.h:
 
-C:/Users/Mahmoud\ El-Tabakh/Desktop/2021\ Term\ 2/Embedded\ System/Gps\ Project/GPS/typedef.h:
+C:/Users/Mahmoud\ El-Tabakh/Desktop/2021\ Term\ 2/Embedded\ System/Gps\ Project/New/GPS/typedef.h:
 
 ../UART0.h:
 
@@ -66,7 +68,7 @@ C:/ti/ccs1031/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/machine/_limits.h
 
 ../LCD.h:
 
-C:/Users/Mahmoud\ El-Tabakh/Desktop/2021\ Term\ 2/Embedded\ System/Gps\ Project/GPS/Macros.h:
+C:/Users/Mahmoud\ El-Tabakh/Desktop/2021\ Term\ 2/Embedded\ System/Gps\ Project/New/GPS/Macros.h:
 
 C:/ti/ccs1031/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdio.h:
 
@@ -75,4 +77,8 @@ C:/ti/ccs1031/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdarg.h:
 C:/ti/ccs1031/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdlib.h:
 
 ../LED.h:
+
+../interrupt.h:
+
+../hashs.h:
 

@@ -28,4 +28,5 @@ void system_init (void){
     UART2_Init();
     UART0_Init();
     LCD_init();
+    EdgeCounter_Init();
 }

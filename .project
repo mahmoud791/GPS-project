@@ -24,11 +24,4 @@
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>tm4c123gh6pm_registers.h</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/tm4c123gh6pm_registers.h</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>

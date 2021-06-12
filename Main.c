@@ -1,8 +1,7 @@
 #include "hashs.h"
-
-
-
 #define PI 3.1415926535897932
+
+
 
 
 float32 Decimal_LONG_LAT_CAL (uint8 degree,uint16 min,float32 second){
@@ -97,15 +96,15 @@ sint8 coordinatesTime (uint8 *latitudeD,uint16 *latitudeM,float32 *latitudeS,\
     //    UART0_SendStr(longitudeSStr);
     //    UART0_SendStr(space);
 
-//    UART0_SendStr("Hours = ");
-//    UART0_SendStr(timeHStr);
-//    UART0_SendStr(space);
-//    UART0_SendStr("Mins = ");
-//    UART0_SendStr(timeMStr);
-//    UART0_SendStr(space);
-//    UART0_SendStr("Secs = ");
-//    UART0_SendStr(timeSStr);
-//    UART0_SendStr(space);
+    //    UART0_SendStr("Hours = ");
+    //    UART0_SendStr(timeHStr);
+    //    UART0_SendStr(space);
+    //    UART0_SendStr("Mins = ");
+    //    UART0_SendStr(timeMStr);
+    //    UART0_SendStr(space);
+    //    UART0_SendStr("Secs = ");
+    //    UART0_SendStr(timeSStr);
+    //    UART0_SendStr(space);
 
 
     UART0_SendStr(longitudeDStr);
@@ -120,6 +119,7 @@ sint8 coordinatesTime (uint8 *latitudeD,uint16 *latitudeM,float32 *latitudeS,\
     UART0_SendData(' ');
     UART0_SendStr(latitudeSStr);
     UART0_SendStr(space);
+
 
 
 
@@ -141,7 +141,6 @@ sint8 coordinatesTime (uint8 *latitudeD,uint16 *latitudeM,float32 *latitudeS,\
     return 0;
 
 }
-
 
 
 
@@ -167,7 +166,20 @@ sint8 coordinatesTime (uint8 *latitudeD,uint16 *latitudeM,float32 *latitudeS,\
 //}
 
 
-EdgeCounter_Init();
+
+
+//int main (void){
+//    system_init();
+//
+//    float a = 3.2546;
+//    sint8 str[20];
+//
+//    while(1)
+//    {
+//        snprintf(str, 10,"%f",a);
+//    }
+//}
+
 
 
 
@@ -177,6 +189,8 @@ EdgeCounter_Init();
 int main (void){
 
     system_init();
+
+
 
 
     LCD_displayStringRowColumn(0,0 ,"Distance = 000M" );
@@ -259,12 +273,13 @@ int main (void){
         decimal_longitude_new = Decimal_LONG_LAT_CAL(longitudeD_new, longitudeM_new, longitudeS_new);
         decimal_latitude_new = Decimal_LONG_LAT_CAL(latitudeD_new, latitudeM_new, latitudeS_new);
 
-//        UART0_SendStr("Longitude = ");
-//        UART0_Send_float(decimal_longitude_new);
-//        UART0_SendStr(space);
-//        UART0_SendStr("latitude = ");
-//        UART0_Send_float(decimal_latitude_new);
-//        UART0_SendStr(space);
+
+        //        UART0_SendStr("Longitude = ");
+        //        UART0_Send_float(decimal_longitude_new);
+        //        UART0_SendStr(space);
+        //        UART0_SendStr("latitude = ");
+        //        UART0_Send_float(decimal_latitude_new);
+        //        UART0_SendStr(space);
 
 
 

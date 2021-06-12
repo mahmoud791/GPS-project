@@ -10,12 +10,12 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
-"./GPS.obj" \
 "./LCD.obj" \
 "./LED.obj" \
 "./UART0.obj" \
 "./UART1.obj" \
 "./UART2.obj" \
+"./interrupt.obj" \
 "./main.obj" \
 "./ports.obj" \
 "./systick.obj" \
@@ -163,8 +163,8 @@ GPS.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "GPS.obj" "LCD.obj" "LED.obj" "UART0.obj" "UART1.obj" "UART2.obj" "main.obj" "ports.obj" "systick.obj" "tm4c123gh6pm_startup_ccs.obj" 
-	-$(RM) "GPS.d" "LCD.d" "LED.d" "UART0.d" "UART1.d" "UART2.d" "main.d" "ports.d" "systick.d" "tm4c123gh6pm_startup_ccs.d" 
+	-$(RM) "LCD.obj" "LED.obj" "UART0.obj" "UART1.obj" "UART2.obj" "interrupt.obj" "main.obj" "ports.obj" "systick.obj" "tm4c123gh6pm_startup_ccs.obj" 
+	-$(RM) "LCD.d" "LED.d" "UART0.d" "UART1.d" "UART2.d" "interrupt.d" "main.d" "ports.d" "systick.d" "tm4c123gh6pm_startup_ccs.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

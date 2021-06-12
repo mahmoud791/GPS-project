@@ -86,9 +86,9 @@ void UART0_ReceiveStr_SpecialChar (uint8 spec, sint8 *str)
 
 void UART0_Send_float(float32 num){
 
-    sint8 str[20];
+    sint8 str[5000];
 
-    snprintf(str, num, "%f");
+    snprintf(str,10,"%f",num);
 
     UART0_SendStr(str);
 

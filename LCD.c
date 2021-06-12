@@ -2,6 +2,7 @@
 #include "LCD.h"
 #include "systick.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 
 
@@ -9,6 +10,7 @@ void delay_ms(unsigned long long n)
 {
     volatile unsigned long long i = 0;
     while(i++ < (1600 * n) );
+
 
 }
 
