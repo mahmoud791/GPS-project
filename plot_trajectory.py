@@ -33,18 +33,19 @@ for line in content:
     LON.append(longitude)
     LAT.append(latitude)
 
-origin_x = LAT[0]
-origin_y = LON[0]
-
-for i in range(len(LAT)):
-    LAT[i] -= origin_x
-
-for i in range(len(LON)):
-    LON[i] -= origin_y
+#origin_x = LAT[0]
+#origin_y = LON[0]
+#
+#for i in range(len(LAT)):
+#    LAT[i] -= origin_x
+#
+#for i in range(len(LON)):
+#    LON[i] -= origin_y
     
 
 
     
 
-plt.plot(LAT,LON)
+plt.plot(LON,LAT)
+plt.plot(LON[0],LAT[0],'*g')
 plt.show()
