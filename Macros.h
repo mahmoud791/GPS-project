@@ -1,6 +1,9 @@
 #ifndef COMMON_MACROS
 #define COMMON_MACROS
 
+//MACROS definition used in project
+
+
 #define SET_BIT(REG,BIT) (REG|=(1<<BIT))
 
 #define CLEAR_BIT(REG,BIT) (REG&=(~(1<<BIT)))
