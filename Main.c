@@ -1,6 +1,7 @@
 #include "hashs.h"
 
 
+
 #define PI 3.1415926535897932
 
 
@@ -149,7 +150,7 @@ sint8 coordinatesTime (uint8 *latitudeD,uint16 *latitudeM,float32 *latitudeS,\
 //}
 
 
-
+EdgeCounter_Init();
 
 
 
@@ -173,7 +174,8 @@ int main (void){
     uint8 i=0;
 
     float32 decimal_longitude_new = 0, decimal_longitude_old = 0,decimal_latitude_new = 0, decimal_latitude_old = 0;
-    float32 distance = 0, total_distance = 0;
+    float32 distance = 0;
+
     //  float32 decimal_long_arr [55] = {0}, decimal_lat_arr[55] = {0};
 
 
