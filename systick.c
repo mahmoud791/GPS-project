@@ -2,6 +2,8 @@
 #include "typedef.h"
 #include "systick.h"
 
+//initialize systick peripheral
+
 void systick_init (void)
 {
     SYSTICK_CTRL_REG = 0;
@@ -10,7 +12,7 @@ void systick_init (void)
     SYSTICK_CTRL_REG = 0X05;
 }
 
-
+//delay using systick
 
 static void systick_wait (uint32 delay){
     SYSTICK_RELOAD_REG = delay-1;
