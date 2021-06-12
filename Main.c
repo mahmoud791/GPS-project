@@ -2,13 +2,16 @@
 #define PI 3.1415926535897932
 
 
-
+//function to convert coardinates from degree to decimal
 
 float32 Decimal_LONG_LAT_CAL (uint8 degree,uint16 min,float32 second){
 
     return (float)degree + (float)min/60 + (float)second/3600;
 
 }
+
+//function that calculates distance between to coardinates
+
 
 float32 Distance_calc (float32 Long_new,float32 Lat_new,float32 Long_old,float32 Lat_old ){
     return       2 * 6371000 * asin(sqrt((sin((Lat_new*(PI/180)-Lat_old*(PI/180))/2))\
@@ -17,6 +20,9 @@ float32 Distance_calc (float32 Long_new,float32 Lat_new,float32 Long_old,float32
                                          * sin(((Long_new * (PI/180)-Long_old*(PI/180))/2))));
 
 }
+
+
+//function that parses string from GPS UART
 
 sint8 coordinatesTime (uint8 *latitudeD,uint16 *latitudeM,float32 *latitudeS,\
                        uint8 *longitudeD,uint16 *longitudeM,float32 *longitudeS )
