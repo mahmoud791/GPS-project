@@ -26,7 +26,7 @@ void EdgeCounter_Init(void){
 
 }
 
-
+//ISR function of GPIO PortF interrupt
 
 void GPIOPortF_Handler(void)
 {
