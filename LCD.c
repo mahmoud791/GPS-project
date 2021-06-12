@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-
+//delay function
 
 void delay_ms(unsigned long long n)
 {
@@ -15,7 +15,7 @@ void delay_ms(unsigned long long n)
 }
 
 
-
+//Send command to LCD to change its configuration
 
 
 void LCD_sendCommand(uint8 command)
@@ -33,7 +33,7 @@ void LCD_sendCommand(uint8 command)
 }
 
 
-
+//Function to initialize PortB connected to LCD data pins 
 
 
 static void LCD_Dataport_init (void){
@@ -47,6 +47,9 @@ static void LCD_Dataport_init (void){
 }
 
 
+//Function to initialize PortA pins connected to LCD control pins
+
+
 static void LCD_ControlPort_init (void){
 
     GPIO_PORTA_DIR_REG |= (0X1C);
@@ -56,6 +59,8 @@ static void LCD_ControlPort_init (void){
     GPIO_PORTA_PCTL_REG &= ~(0XFFF00); // 000fff00
 
 }
+
+//function to initialize LCD 
 
 void LCD_init (void)
 {
@@ -74,7 +79,7 @@ void LCD_init (void)
 }
 
 
-
+//function to display char on LCD 
 
 
 void LCD_displayCharacter (uint8 Char)
@@ -91,6 +96,9 @@ void LCD_displayCharacter (uint8 Char)
 
 }
 
+
+//function to display string on LCD
+
 void LCD_displayString (sint8* str){
     uint8 i=0;
     while(str[i] != '\0')
@@ -99,6 +107,9 @@ void LCD_displayString (sint8* str){
         i++;
     }
 }
+
+
+//function to go to certain row and column
 
 
 void LCD_goToRowColumn(uint8 row,uint8 col){
@@ -121,12 +132,18 @@ void LCD_goToRowColumn(uint8 row,uint8 col){
     LCD_sendCommand(address | SetCursorLocation);
 }
 
+
+
+
 void LCD_displayStringRowColumn(uint8 row,uint8 col,sint8* str){
 
     LCD_goToRowColumn(row, col);
     LCD_displayString(str);
 
 }
+
+//function to clear LCD
+
 
 void LCD_clearScreen (void){
     LCD_sendCommand(clearScreen);
