@@ -11,7 +11,6 @@ float32 Decimal_LONG_LAT_CAL (uint8 degree,uint16 min,float32 second){
 
 }
 
-
 float32 Distance_calc (float32 Long_new,float32 Lat_new,float32 Long_old,float32 Lat_old ){
     return       2 * 6371000 * asin(sqrt((sin((Lat_new*(PI/180)-Lat_old*(PI/180))/2))\
                                          * (sin((Lat_new * (PI/180)-Lat_old * (PI/180))/2)) + cos(Lat_new*(PI/180))\
@@ -76,6 +75,8 @@ sint8 coordinatesTime (uint8 *latitudeD,uint16 *latitudeM,float32 *latitudeS,\
 
 
 
+
+
     //    UART0_SendStr("LAT DEG = ");
     //    UART0_SendStr(latitudeDStr);
     //    UART0_SendStr(space);
@@ -96,15 +97,31 @@ sint8 coordinatesTime (uint8 *latitudeD,uint16 *latitudeM,float32 *latitudeS,\
     //    UART0_SendStr(longitudeSStr);
     //    UART0_SendStr(space);
 
-    UART0_SendStr("Hours = ");
-    UART0_SendStr(timeHStr);
+//    UART0_SendStr("Hours = ");
+//    UART0_SendStr(timeHStr);
+//    UART0_SendStr(space);
+//    UART0_SendStr("Mins = ");
+//    UART0_SendStr(timeMStr);
+//    UART0_SendStr(space);
+//    UART0_SendStr("Secs = ");
+//    UART0_SendStr(timeSStr);
+//    UART0_SendStr(space);
+
+
+    UART0_SendStr(longitudeDStr);
+    UART0_SendData(' ');
+    UART0_SendStr(longitudeMStr);
+    UART0_SendData(' ');
+    UART0_SendStr(longitudeSStr);
+    UART0_SendData(',');
+    UART0_SendStr(latitudeDStr);
+    UART0_SendData(' ');
+    UART0_SendStr(latitudeMStr);
+    UART0_SendData(' ');
+    UART0_SendStr(latitudeSStr);
     UART0_SendStr(space);
-    UART0_SendStr("Mins = ");
-    UART0_SendStr(timeMStr);
-    UART0_SendStr(space);
-    UART0_SendStr("Secs = ");
-    UART0_SendStr(timeSStr);
-    UART0_SendStr(space);
+
+
 
 
     LCD_displayStringRowColumn(1, 5, timeHStr);
@@ -170,8 +187,6 @@ int main (void){
     uint8 latitudeD_new = 0, longitudeD_new = 0;
     uint16 latitudeM_new= 0, longitudeM_new = 0;
     float32 latitudeS_new = 0, longitudeS_new = 0;
-    uint8 distance_buffer=0;
-    uint8 i=0;
 
     float32 decimal_longitude_new = 0, decimal_longitude_old = 0,decimal_latitude_new = 0, decimal_latitude_old = 0;
     float32 distance = 0;
@@ -244,6 +259,15 @@ int main (void){
         decimal_longitude_new = Decimal_LONG_LAT_CAL(longitudeD_new, longitudeM_new, longitudeS_new);
         decimal_latitude_new = Decimal_LONG_LAT_CAL(latitudeD_new, latitudeM_new, latitudeS_new);
 
+//        UART0_SendStr("Longitude = ");
+//        UART0_Send_float(decimal_longitude_new);
+//        UART0_SendStr(space);
+//        UART0_SendStr("latitude = ");
+//        UART0_Send_float(decimal_latitude_new);
+//        UART0_SendStr(space);
+
+
+
         distance = Distance_calc(decimal_longitude_new, decimal_latitude_new, decimal_longitude_old, decimal_latitude_old);
 
         if(distance < 1){
@@ -262,19 +286,10 @@ int main (void){
             //        UART0_SendStr(space);
 
 
-            distance_buffer += distance;
             total_distance += distance;
             led_flash_distance(total_distance);
 
 
-            if(distance_buffer>=1)
-            {
-                distance_buffer = 0;
-                //          decimal_lat_arr[i] = decimal_latitude_new;
-                //        decimal_long_arr[i] = decimal_longitude_new;
-                i++;
-
-            }
 
             //
             //        UART0_SendStr("Total Distance = ");
